@@ -1,6 +1,6 @@
 # Radar Odometry
 
-This repo contains radar odometry code for paper [Precise Ego-Motion Estimation with Millimeter-Wave Radar
+This repo implements radar odometry code for paper [Precise Ego-Motion Estimation with Millimeter-Wave Radar
 under Diverse and Challenging Conditions](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwji6qLu88LuAhWjFTQIHW85BqMQFjACegQIARAC&url=https%3A%2F%2Fori.ox.ac.uk%2Fmedia%2F5535%2F2018icra_cen.pdf&usg=AOvVaw3V3-M2y-G6erdox6S1aw6j). For odometry experiments, we use the [Oxford Radar Robotcar Dataset](https://oxford-robotics-institute.github.io/radar-robotcar-dataset/). 
 
 ## Feature Extraction
