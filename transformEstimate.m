@@ -24,7 +24,7 @@ function [SE2] = transformEstimate(data)
 
     C = 1/N * C;
 
-    [U, W, V] = svd(C);
+    [U, ~, V] = svd(C);
     if (det(U) * det(V) > 0)
         R = U * V.';
     else

@@ -1,4 +1,4 @@
-function [descriptor] = calcRSD(LO, LI, M, r, isDebug)
+function [descriptor] = calcRSD(LO, LI, r)
     % DataAssociation - convert a UNIX timestamp to a human-readable string
     %
     % [date_time] = TimestampToString(t)
@@ -14,11 +14,6 @@ function [descriptor] = calcRSD(LO, LI, M, r, isDebug)
     descriptor = zeros(ceil(r / rng_res), N);
     % calculate RSD for each point
     for i = 1 : N
-        % debug purpose
-        if isDebug
-            figure(1);
-            polarplot(LO(2,:), LO(1,:), '.');
-        end
         
         % current point 
         current_point = LO(:, i);
@@ -33,15 +28,7 @@ function [descriptor] = calcRSD(LO, LI, M, r, isDebug)
                 descriptor(rngbin, i) = descriptor(rngbin, i) + 1; 
             end
         end
-        if isDebug
-            assert(ref_az <= 2 * pi && ref_az >= 0);
-        end
 
-        % debug purpose
-        if isDebug
-            figure(2);
-            polarplot(angles, LO(1,:), '.');
-        end
         %       
        
         % for j = 1 : M

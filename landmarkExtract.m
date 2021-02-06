@@ -1,4 +1,4 @@
-function [L_O, L_I, cart_binary] = landmarkExtract(azimuths, valid, fft_data, binomialFilterCoeff, medFilter_w, z_q, radar_resolution, cart_resolution, cart_pixel_width, isDebug, isMR)
+function [L_O, L_I, t] = landmarkExtract(azimuths, timestamps, valid, fft_data, binomialFilterCoeff, z_q, radar_resolution, cart_resolution, cart_pixel_width, isDebug, isMR)
 
     % DataAssociation - convert a UNIX timestamp to a human-readable string
     %
@@ -17,7 +17,7 @@ function [L_O, L_I, cart_binary] = landmarkExtract(azimuths, valid, fft_data, bi
     num_rng_bins = size(fft_data, 2);
     L_O = [];
     L_I = [];
-    
+      t = [];
 
     polar_binary = zeros(size(fft_data));
     
@@ -64,7 +64,7 @@ function [L_O, L_I, cart_binary] = landmarkExtract(azimuths, valid, fft_data, bi
                 a = azimuths(i);
                 r = (ii - 0.5) * radar_resolution;
                 L_O(:, end + 1) = [r * cos(a); r * sin(a)];
-
+                  t(:, end + 1) = timestamps(i);
                 polar_binary(i, ii) = 1;
             end
         end
